@@ -1,5 +1,5 @@
 # CS 2640 Sec. 2
-# 10/23/23
+# 10/28/24
 # Project 1: Getting Familiar with Assembly
 # Goals:
 # 1) Get 2 integers from user and print larger number.
@@ -9,7 +9,8 @@
 .data
 prompt1: .asciiz "Enter your first integer: "
 prompt2: .asciiz "Enter your second integer: "
-greaterNum: .asciiz "Greater Number: "
+firstInt: .asciiz "First Integer: "
+secondInt: .asciiz "Second Integer: "
 msgAdd: .asciiz "num1 + num2 = "
 msgSub: .asciiz "num1 - num2 = "
 msgMul: .asciiz "num1 * num2 = "
@@ -40,30 +41,29 @@ main:
 	syscall
 	move $s1, $v0
 	
-	# Prints greater number
+	# Prints first integer
 	li $v0, 4
-	la $a0, greaterNum
+	la $a0, firstInt
 	syscall
 	
-	bgt $s0, $s1, greater
-	bgt $s1, $s0, lesser
-	
-greater:
-	# Prints $s0 if $s0 > $s1
 	li $v0, 1
 	move $a0, $s0
 	syscall
 	
-	# Jumps to "math" label
-	b math
+	# Newline
+	li $v0, 4
+	la $a0, newline
+	syscall
 	
-lesser:
-	# Prints $s1 if $s1 > $s0
+	# Prints second integer
+	li $v0, 4
+	la $a0, secondInt
+	syscall
+	
 	li $v0, 1
 	move $a0, $s1
 	syscall
 	
-math:
 	# Newline
 	li $v0, 4
 	la $a0, newline
