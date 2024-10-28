@@ -2,7 +2,7 @@
 # 10/28/24
 # Project 1: Getting Familiar with Assembly
 # Goals:
-# 1) Get 2 integers from user and print larger number.
+# 1) Get 2 integers from user and print both numbers.
 # 2) Perform arithmetic operations from user-given integers.
 # 3) Print whether user inputs from first task are equal or not.
 
